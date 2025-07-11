@@ -1,0 +1,388 @@
+/* Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Fonte sans-serif simples e legível */
+    line-height: 1.7;
+    background-color: #F0F4F8; /* Fundo suave */
+    color: #2C3E50; /* Texto principal escuro e suave */
+    font-size: 16px; /* Tamanho base da fonte */
+    transition: font-size 0.3s ease-in-out;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Cabeçalho e Navegação */
+header {
+    background-color: #5DA9E9; /* Azul suave primário */
+    color: white;
+    padding: 1em 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);  
+
+}
+
+
+.text-sm-accessible {
+    font-size: 1rem;
+}
+.text-md-accessible {
+    font-size: 1.2rem;
+}
+.text-lg-accessible {
+    font-size: 1.4rem;      
+}
+
+header h1 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem); /* Responsivo */
+    margin-bottom: 0.5em;
+    text-align: center;
+    font-weight: 600;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    padding-bottom: 0.5em;
+}
+
+nav ul li {
+    display: inline-block; /* Alterado para inline-block para melhor controle */
+    margin: 0.5em 0.8em;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: clamp(1rem, 3vw, 1.1rem); /* Responsivo */
+    padding: 0.5em 0.8em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: #4A90E2; /* Tom mais escuro do azul para hover/ativo */
+    text-decoration: none;
+}
+
+/* Conteúdo Principal */
+main {
+    padding: 2em 0;
+}
+
+main.content-page { /* Para páginas com mais texto */
+    background-color: #FFFFFF;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.1);
+}
+
+h2 {
+    color: #50C878; /* Verde suave secundário */
+    margin-bottom: 0.8em;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    border-bottom: 2px solid #DDEEFF;
+    padding-bottom: 0.3em;
+}
+
+h3 {
+    color: #5DA9E9; /* Azul suave */
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+}
+
+p {
+    margin-bottom: 1em;
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+}
+
+a {
+    color: #5DA9E9; /* Links com a cor primária */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #4A90E2;
+}
+
+ul, ol {
+    margin-left: 20px;
+    margin-bottom: 1em;
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+/* Cards - index.html */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: #FFFFFF;
+    border: 1px solid #DDEEFF;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 320px; /* Largura máxima para cada card */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+.card p {
+    flex-grow: 1; /* Faz o parágrafo ocupar o espaço disponível */
+}
+
+
+.btn {
+    display: inline-block;
+    background-color: #50C878; /* Verde Suave */
+    color: white;
+    padding: 10px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Alinha o botão na parte inferior do card */
+}
+
+.btn:hover {
+    background-color: #3EAF63; /* Verde um pouco mais escuro */
+    color: white;
+    text-decoration: none;
+}
+
+/* Seções de resumo - index.html */
+.resumo-secao {
+    background-color: #E0E8F0;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border-left: 5px solid #50C878;
+}
+.resumo-secao h2 {
+    border-bottom: none;
+    padding-bottom: 0;
+    font-size: 1.6rem;
+}
+
+/* Estilos específicos para páginas de conteúdo (Sobre, Noticias, Recursos) */
+.page-description {
+    font-size: 1.1em;
+    margin-bottom: 1.5em;
+    color: #556677;
+    text-align: center;
+}
+
+/* Navegação na página - sobre.html */
+.in-page-nav {
+    background-color: #E0E8F0;
+    padding: 15px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+.in-page-nav p {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    color: #2C3E50;
+}
+.in-page-nav ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+.in-page-nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+.in-page-nav ul li a {
+    font-weight: normal;
+}
+
+
+/* Destaques e Listas de Recursos */
+.highlight {
+    background-color: #eafaf1; /* Verde muito claro */
+    padding: 15px;
+    margin-bottom: 1em;
+    border-left: 5px solid #50C878; /* Verde suave */
+    border-radius: 4px;
+}
+.highlight ul {
+    margin-left: 0;
+    padding-left: 20px; /* Adiciona recuo para os itens da lista dentro do highlight */
+}
+
+
+.resource-list li {
+    background-color: #f9fbfc;
+    padding: 15px;
+    border: 1px solid #DDEEFF;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.resource-list .description {
+    font-size: 0.9em;
+    color: #556677;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+/* Notícias */
+.news-feed {
+    margin-top: 20px;
+}
+.news-article {
+    background-color: #FFFFFF;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #DDEEFF;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.news-article h2 {
+    color: #5DA9E9; /* Azul para títulos de notícias */
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0.3em;
+}
+.news-date {
+    display: block;
+    font-size: 0.85em;
+    color: #778899;
+    margin-bottom: 0.8em;
+}
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #50C878;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.read-more:hover {
+    background-color: #3EAF63;
+    text-decoration: none;
+    color: white;
+}
+
+/* Rodapé */
+footer {
+    background-color: #2C3E50; /* Cinza escuro */
+    color: #E0E8F0; /* Texto claro no rodapé */
+    padding: 1.5em 0;
+    text-align: center;
+    margin-top: 2em;
+}
+footer p {
+    margin-bottom: 0.8em;
+    font-size: 0.9rem;
+}
+footer a {
+    color: #AAB8C2; /* Links no rodapé */
+}
+footer a:hover {
+    color: white;
+}
+
+.accessibility-tools {
+    margin-top: 10px;
+}
+
+.accessibility-tools button {
+    background-color: #5DA9E9;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin: 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.accessibility-tools button:hover {
+    background-color: #4A90E2;
+}
+
+/* Acessibilidade - Foco Visível */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline: 3px solid #FFD700; /* Destaque amarelo ouro para foco */
+    outline-offset: 2px; /* Pequeno espaçamento para não cobrir o elemento */
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.5); /* Sombra suave para complementar */
+}
+
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    nav ul li {
+        display: block; /* Links da navegação em bloco em telas menores */
+        margin: 0.8em 0;
+    }
+
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        max-width: 90%; /* Cards ocupam mais largura */
+    }
+
+    .in-page-nav ul li {
+        display: block;
+        margin-bottom: 0.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 15px; /* Ajuste leve na fonte base para telas muito pequenas */
+    }
+    header h1 {
+        font-size: 1.6rem;
+    }
+    h2 {
+        font-size: 1.6rem;
+    }
+    h3 {
+        font-size: 1.3rem;
+    }
+    .accessibility-tools button {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+    .container {
+        width: 95%;
+    }
+}

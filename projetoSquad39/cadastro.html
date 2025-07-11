@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro da Comunidade - Inclusão TEA e PCD</title>
+    <link rel="stylesheet" href="src/App.css"> <!-- Link para o CSS geral -->
+    <style>
+        /* Estilos específicos para esta página de cadastro, complementando o style.css geral */
+        .cadastro-container, .lista-container {
+            background-color: #FFFFFF;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(44, 62, 80, 0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Padrão para mobile */
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) { /* Em telas maiores, duas colunas */
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2C3E50;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #AAB8C2;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: #2C3E50;
+            background-color: #F0F4F8;
+        }
+        .form-group input:focus, .form-group select:focus {
+             border-color: #5DA9E9;
+             background-color: #fff;
+        }
+
+
+        .form-actions {
+            grid-column: 1 / -1; /* Ocupa todas as colunas no grid */
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .form-actions button {
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+        }
+
+        .btn-submit {
+            background-color: #5DA9E9; /* Azul primário */
+            color: white;
+        }
+        .btn-submit:hover {
+            background-color: #4A90E2;
+        }
+
+        .btn-clear {
+            background-color: #AAB8C2; /* Cinza suave */
+            color: #2C3E50;
+        }
+        .btn-clear:hover {
+            background-color: #92A0AA;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .search-container label {
+            margin-right: 10px;
+            font-weight: bold;
+            display: none; /* Ocultar se não for necessário visualmente */
+        }
+        .search-container input[type="search"] {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid #AAB8C2;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #F0F4F8;
+            padding-left: 40px; /* Espaço para o ícone */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AAB8C2" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: 10px center;
+        }
+         .search-container input[type="search"]:focus {
+            border-color: #5DA9E9;
+            background-color: #fff;
+         }
+
+
+        .user-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .user-table th, .user-table td {
+            padding: 12px 15px;
+            border: 1px solid #DDEEFF;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .user-table th {
+            background-color: #E0E8F0;
+            color: #2C3E50;
+            font-weight: bold;
+        }
+
+        .user-table tr:nth-child(even) {
+            background-color: #F9FBFC;
+        }
+        .user-table tr:hover {
+            background-color: #e8f4fd;
+        }
+
+        .user-table .actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            margin-right: 5px;
+        }
+        .user-table .actions svg {
+            width: 18px;
+            height: 18px;
+            vertical-align: middle;
+        }
+        .btn-edit-user svg {
+            fill: #5DA9E9; /* Azul */
+        }
+        .btn-delete-user svg {
+            fill: #E74C3C; /* Vermelho */
+        }
+
+        .table-footer {
+            padding: 10px;
+            text-align: right;
+            font-size: 0.9em;
+            color: #556677;
+            border-top: 2px solid #DDEEFF;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Cadastro da Comunidade</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre TEA e PCD</a></li>
+                    <li><a href="noticias.html">Notícias</a></li>
+                    <li><a href="recursos.html">Recursos</a></li>
+                    <li><a href="cadastro.html" class="active">Cadastre-se</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="cadastro-container">
+            <h2 id="form-title">Cadastro de Usuário</h2>
+            <form id="user-form">
+                <input type="hidden" id="userId" name="userId">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nomeCompleto">Nome Completo:</label>
+                        <input type="text" id="nomeCompleto" name="nomeCompleto" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="relacao">Relação com pessoa autista:</label>
+                        <select id="relacao" name="relacao" required>
+                            <option value="">Selecione uma opção</option>
+                            <option value="Sou a pessoa autista">Sou a pessoa autista</option>
+                            <option value="Pai/Mãe">Pai/Mãe</option>
+                            <option value="Responsável Legal">Responsável Legal</option>
+                            <option value="Irmão/Irmã">Irmão/Irmã</option>
+                            <option value="Outro Familiar">Outro Familiar</option>
+                            <option value="Profissional da Saúde">Profissional da Saúde</option>
+                            <option value="Profissional da Educação">Profissional da Educação</option>
+                            <option value="Amigo(a)">Amigo(a)</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-clear" id="btnClearForm">Limpar</button>
+                    <button type="submit" class="btn-submit" id="btnSubmitForm">Cadastrar</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="lista-container">
+            <h2>Lista de Usuários Cadastrados</h2>
+            <div class="search-container">
+                 <label for="searchInput">Buscar:</label>
+                <input type="search" id="searchInput" placeholder="Buscar por nome, email ou relação...">
+            </div>
+            <table class="user-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Relação</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    <!-- Linhas da tabela serão inseridas aqui pelo JavaScript -->
+                </tbody>
+            </table>
+            <div class="table-footer">
+                <span id="userCount">0 usuário(s) cadastrado(s)</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© RECODE PRO IA 2025 *** Inclusão TEA e PCD *** Todos os direitos reservados.</p>
+            <div class="accessibility-tools">
+                <button id="aumentar-texto">Aumentar Fonte</button>
+                <button id="diminuir-texto">Diminuir Fonte</button>
+                <button id="resetar-texto">Restaurar Fonte</button>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/index.js"></script> <!-- Script geral para acessibilidade de fonte -->
+    <script src="assets/js/cadastro-comunidade.js"></script> <!-- Script específico para esta página -->
+</body>
+</html>

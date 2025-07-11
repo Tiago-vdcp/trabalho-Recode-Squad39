@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos de Acessibilidade para TEA e PCDs</title>
+    <link rel="stylesheet" href="src/App.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Recursos de Acessibilidade para TEA e PCDs</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre TEA e PCD</a></li>
+                    <li><a href="noticias.html">Notícias</a></li>
+                    <li><a href="recursos.html" class="active">Recursos</a></li>
+                    <li><a href="cadastro.html">Cadastre-se</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container content-page">
+        <p class="page-description">Explore uma variedade de recursos para promover a acessibilidade e inclusão de pessoas com TEA e outras deficiências.</p>
+
+        <section id="leitores-tela">
+            <h2>Leitores de Tela (Deficiência Visual)</h2>
+            <p>Leitores de tela são softwares que convertem texto exibido na tela em fala sintetizada ou saída em Braille, essenciais para usuários com deficiência visual.</p>
+            <ul class="resource-list">
+                <li>
+                    <a href="https://www.nvaccess.org/" target="_blank" rel="noopener noreferrer">NVDA (NonVisual Desktop Access)</a>
+                    <p class="description">Gratuito e de código aberto para Windows. Amplamente utilizado e com muitos recursos.</p>
+                </li>
+                <li>
+                    <a href="https://support.microsoft.com/pt-br/windows/ouvir-texto-lido-em-voz-alta-com-o-narrador-1d23d9e7-ca75-4928-9498-1b3af246f186" target="_blank" rel="noopener noreferrer">Narrador (Windows)</a>
+                    <p class="description">Integrado ao Windows. Ative nas configurações de acessibilidade.</p>
+                </li>
+                <li>
+                    <a href="https://help.apple.com/voiceover/info/guide/10.15/index.html" target="_blank" rel="noopener noreferrer">VoiceOver (Apple)</a>
+                    <p class="description">Integrado aos sistemas macOS e iOS da Apple.</p>
+                </li>
+                <li>
+                    <a href="https://support.google.com/accessibility/android/answer/6007100?hl=pt-BR" target="_blank" rel="noopener noreferrer">TalkBack (Android)</a>
+                    <p class="description">Leitor de tela do Google para dispositivos Android.</p>
+                </li>
+                 <li>
+                    <a href="https://orca.gnome.org/" target="_blank" rel="noopener noreferrer">Orca (Linux)</a>
+                    <p class="description">Gratuito para o sistema operacional Linux, compatível com várias distribuições.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="ferramentas-tea">
+            <h2>Ferramentas e Apoios para TEA</h2>
+            <p>Recursos que podem auxiliar pessoas no espectro autista em comunicação, organização e bem-estar sensorial.</p>
+            <ul class="resource-list">
+                <li>
+                    <a href="https://www.autismspeaks.org/tool-kit/assistive-technology" target="_blank" rel="noopener noreferrer">Tecnologia Assistiva para TEA (Autism Speaks - em inglês)</a>
+                    <p class="description">Informações sobre diversas tecnologias que podem ajudar.</p>
+                </li>
+                <li>
+                    <strong>Aplicativos de Comunicação Aumentativa e Alternativa (CAA):</strong>
+                    <p class="description">Existem diversos apps (ex: LetMeTalk, Matraquinha, Livox) que ajudam pessoas com dificuldades na fala a se comunicar. Pesquise por "CAA apps" na sua loja de aplicativos.</p>
+                </li>
+                <li>
+                    <strong>Aplicativos de Rotina e Organização:</strong>
+                    <p class="description">Ferramentas visuais para criar rotinas e listas de tarefas (ex: Trello, Todoist, ou apps específicos para TEA como "Minha Rotina Especial").</p>
+                </li>
+                 <li>
+                    <strong>Recursos Sensoriais:</strong>
+                    <p class="description">Informações sobre fones de ouvido com cancelamento de ruído, objetos de estímulo tátil (fidget toys), e como criar ambientes sensorialmente amigáveis.</p>
+                </li>
+            </ul>
+        </section>
+        
+        <section id="ferramentas-digitais">
+             <h2>Ferramentas de Acessibilidade para Sites</h2>
+             <p>Recursos para desenvolvedores e criadores de conteúdo web.</p>
+             <ul class="resource-list">
+                <li>
+                    <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">WCAG (Web Content Accessibility Guidelines)</a>
+                    <p class="description">Diretrizes internacionais para criar conteúdo web acessível.</p>
+                </li>
+                <li>
+                    <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">WAVE Web Accessibility Evaluation Tool</a>
+                    <p class="description">Ferramenta online para avaliar a acessibilidade de páginas web.</p>
+                </li>
+             </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Recursos de Acessibilidade. Todos os direitos reservados.</p>
+            <div class="accessibility-tools">
+                <button id="aumentar-texto">Aumentar Fonte</button>
+                <button id="diminuir-texto">Diminuir Fonte</button>
+                <button id="resetar-texto">Restaurar Fonte</button>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/index.js"></script>
+</body>
+</html>
